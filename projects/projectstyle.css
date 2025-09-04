@@ -1,0 +1,412 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+.poppins-regular {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+body{
+    background: #080808;
+    color: #fff;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+
+/*----------header-------------*/
+
+#header{
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.container {
+    padding: 10px 10%;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    flex-wrap: wrap;
+}
+
+.logo{
+    width: 140px;
+}
+
+nav ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 30px 20px;
+}
+
+nav ul li a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    position: relative;
+}
+
+nav ul li a::after{
+    content: '';
+    width: 0;
+    height: 3px;
+    background: #4169e1;
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    transition: 0.5s;
+}
+nav ul li a:hover::after{
+    width: 100%;
+}
+.header-text{
+    margin-top: 30px;
+    font-size: 18px;
+}
+.header-text h1{
+    font-size: 60px;
+    margin-top: 20px;
+}
+.header-text span{
+    color: #4169e1;
+}
+
+
+.row-justified{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    transition: background 0.5s;
+}
+
+.sub-title{
+    font-size: 60px;
+    font-weight: 600;
+    color: #fff;
+}
+
+#portfolio{
+    padding: 50px 0;
+}
+
+.work-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 40px;
+    margin-top: 50px;
+}
+.work{
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+.work img{
+    width: 100%;
+    border-radius: 10px;
+    display: block; 
+    transition: transform 0.5s;
+}
+.layer{
+    width: 100%;
+    height: 0;
+    background: linear-gradient(rgba(0,0,0,0.6), #4169e1);
+    border-radius: 10px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    text-align: center;
+    font-size: 14px;
+    transition: height 0.5s;
+}
+.layer h3{
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+.layer a{
+    margin-top: 20px;
+    color: #4169e1;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 60px;
+    background: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    text-align: center;
+}
+.project a::after{
+    bottom: -8px;
+    transition: 0.5s;
+}
+.work:hover img{
+    transform: scale(1.1);
+}
+.work:hover .layer{
+    height: 100%;
+}
+.btn{
+    display: block;
+    margin: 20px auto;
+    width: fit-content;
+    border: 1px solid #4169e1;
+    padding: 14px 50px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #fff;
+    transition: background 0.5s;
+}
+
+.btn.btn2{
+    display: inline-block;
+    background: #4169e1;
+}
+
+.btn:hover{
+    cursor: pointer;
+    background: #4169e1;
+}
+
+/*------------portfolio page--------------*/
+#projects{
+    padding: 50px 0;
+}
+.project-list{
+    display: grid;
+    background: #080808;
+    grid-template-rows: auto;
+    grid-gap: 40px;
+}
+
+.project-list div{
+    background-color: #262626;
+    padding: 40px;
+    font-size: 13px;
+    font-weight: 300;
+    border-radius: 10px;
+    transition: background 0.5s;
+}
+.project-list div h2{
+    font-size: 40px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+.project-list div p{
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+.project-list a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 12px;
+    margin-top: 20px;
+    display: inline-block;
+}
+.project{
+    background-color: #262626;
+    transition: background 0.5s;
+}
+.project div{
+    background-color: #262626;
+    transition: background 0.5s;
+}
+.project:hover, .project:hover div{
+    background: #4169e1;
+}
+
+/*--------------------rps------------------*/
+.rps-game-area {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    padding-top: 20px;
+}
+.rps-left{
+    display: flex;
+    align-items: center;
+    margin-top: -50%;;
+}
+.rps-right{
+    display: grid;
+}
+
+.computer-move {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+}
+.computer-move h1 {
+    text-align: center;
+}
+#computer-move-icon {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    color: red;
+    transition: all;
+}
+.computer-move .computerSlideDown{
+    animation: computerSlideDownAnimation 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes computerSlideDownAnimation {
+    from {
+        transform: translateY(0) rotate(180deg);
+    }
+    to {
+        scale: 5;
+        transform: translateY(10px) rotate(180deg);
+    }
+}
+
+.human-move{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+}
+#human-move-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #4169e1;
+    transition: transform;
+    height: 40px;
+}
+.human-move .humanSlideDown{
+    animation: humanSlideDownAnimation 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes humanSlideDownAnimation {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        scale: 5;
+        transform: translateY(-10px);
+    }
+}
+
+.row-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.choice{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px;
+}
+
+.choice i{
+    font-size: 50px;
+    transition: color 0.5s;
+}
+
+body:has(#choice-btn1:hover) #choice-icon1 {
+    color: #4169e1;
+}
+body:has(#choice-btn2:hover) #choice-icon2 {
+    color: #4169e1;
+}
+body:has(#choice-btn3:hover) #choice-icon3 {
+    color: #4169e1;
+}
+
+/* -------------------biquadris-------------------------------- */
+.subtitle {
+    font-size: small;
+}
+
+.project-info {
+    display: flex;
+    align-items: center;
+    flex-basis: 50%;
+}
+.project-info p{
+    color: #ababab;
+}
+.project-info a{
+    color: #ababab;
+}
+
+/* ------------------ games --------------------------------- */
+.gallery {
+    column-count: 3; /* number of columns */
+    column-gap: 15px; /* space between columns */
+}
+
+.gallery img {
+    width: 100%;
+    display: block;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    break-inside: avoid; /* prevents image breaking between columns */
+}
+
+.game-image {
+    position: relative;
+}
+.game-image .layer {
+    opacity: 0;
+    height: 100%;
+    background: black;
+    border-radius: 6px;
+    transition: 0.5s;
+}
+
+.game-image:hover .layer{
+    opacity: 0.8;
+    transition: 0.5s;
+}
+
+/* ----------------------compiler-------------------------------- */
+.code-block {
+    width: 100%;
+    position: relative;
+    padding-left: 20px;      /* space for line numbers */
+    border: 1px solid #444;
+    border-radius: 6px;
+    background: #1e1e1e;     /* VSCode-like dark bg */
+    color: #eee;
+    line-height: 1.4em;
+    overflow-x: auto;        /* horizontal scroll if long lines */
+    white-space: pre;        /* preserve indentation */
+    overflow-y: auto;        /* vertical scroll if too tall */
+    max-height: 400px;       /* limit height here */
+    scrollbar-width: none;
+}
+
+pre, code {
+    font-family: 'Fira Code', monospace;
+    font-size: 12px;
+    line-height: 1.4em;
+}
+.code-block::-webkit-scrollbar {
+  display: none;
+}
+
+/* -------------------css for small screens ------------------- */
+@media only screen and (max-width: 600px){
+    #header{
+        background-image: none;
+    }
+}

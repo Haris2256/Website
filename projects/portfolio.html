@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Page</title>
+    <link rel="stylesheet" href="projectstyle.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Poppins">
+    <style>
+      body {
+        font-family: 'Poppins', serif;
+      }
+    </style>
+    <script src="https://kit.fontawesome.com/06014d5b84.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+<div id="header">
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+                <li><a href="https://github.com/Haris2256" target="_blank">Github</a></li>
+                <li><a href="https://linkedin.com/in/haris-ahmad-67563228a" target="_blank">Linkedin</a></li>
+            </ul>
+        </nav>
+        <div class="header-text">
+            <h1>My Projects</h1>
+        </div>
+    </div>
+</div>
+
+<!---------projects------------>
+<div id="projects">
+    <div class="container">
+        <div class="project-list">
+            <a href="rps.html">
+                <div class="project row-justified" id="RockPaperScissors">
+                    <img style="border-radius: 50%" src="images/rps-img.png">
+                    <div>
+                        <h2>Rock Paper Scissors</h2>
+                        <p>Can you beat my rock, paper, scissors bot?</p>
+                    </div>
+                </div>
+            </a>
+            <a href="biquadris.html">
+                <div class="project row-justified" id = "Biquadris">
+                    <div>
+                        <h2>Biquadris</h2>
+                        <p>Spin off on the classic arcade game Tetris</p>
+                    </div>
+                    <img style="width: 200px; height: auto; border-radius: 5px;" src="images/biquadris.png">
+                    <img style="width: 200px; height: auto; border-radius: 5px;" src="images/biquadris2.png">
+                </div>
+            </a>
+            <a href="games.html">
+                <div class="project games" id = "Games" style = "display: flex;">
+                    <img style="width: 500px; height: auto; border-radius: 5px;" src="images/games.png">
+                    <div style="margin-left: 50px;">
+                        <h2>Games</h2>
+                        <p> A bunch of different games</p>
+                    </div>
+                </div>
+            </a>
+            <a href="compiler.html">
+                <div class="project row-justified" id = "Compiler" style = "display: flex;">
+                    <div>
+                        <h2>Compiler</h2>
+                        <p>A compiler for WLP4 - a subset of C</p>
+                    </div>
+                    <img style="width: 400px; height: auto; border-radius: 5px;" src="images/compiler.png">
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<script src="portfolio.js"></script>    
+</body>
+</html>
+
+

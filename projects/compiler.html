@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Page</title>
+    <link rel="stylesheet" href="projectstyle.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Poppins">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap">
+    <style>
+      body {
+        font-family: 'Poppins', serif;
+      }
+    </style>
+    <script src="https://kit.fontawesome.com/06014d5b84.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div id="header">
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+                <li><a href="https://github.com/Haris2256" target="_blank">Github</a></li>
+                <li><a href="https://linkedin.com/in/haris-ahmad-67563228a" target="_blank">Linkedin</a></li>
+            </ul>
+        </nav>
+        <div class="header-text">
+            <h1>Compiler</h1>
+        </div>
+    </div>
+</div>
+
+
+<div class="container project-info">
+    <div style="margin-right: 100px;">
+        <h1>A bit about the project</h1>
+    <p style="margin-top: 20px;">This was the final assignment for CS241 that combined all the course content
+        together. It took processed C code (with restrictions) as input and turned it into MIPS assembly code.
+        Each piece of the compiler (assembler, parser, linker) was built for each assignment throughout the course.
+    </p>
+    </div>
+    <div>
+        <img style="width: 400px; height: auto; border-radius: 4px;" src="images/compilerassembly.png">
+    </div>
+</div>
+
+<div class="container project-info">
+    <div>
+        <img style="width: 100px; height: auto; border-radius: 4px;" src="images/leaderboard.png">
+    </div>
+    <div style="margin-left: 100px;">
+        <h1>Leaderboard Shenanigans</h1>
+    <p style="margin-top: 20px;">Bonus marks were available to anyone who could achieve a output file size 
+        under 180,000 bytes on a series of complex programs as input. A leaderboard was also created that ranked
+        the file sizes of correct programs. I ranked 10th (student 4761) out of the 87 passing programs.
+    </p>
+    </div>
+</div>
+
+<div class="container">
+    <h1>Some Example Input and Output</h1>
+    <p style="margin-top: 20px; color: #ababab">On the left is the WLP4 input, and on the right is the compiler's 
+        output, an equivalent program in MIPS Assembly
+    </p>
+    <div class="project-info"  style="gap: 5%; margin-top: 20px;">
+        <div class="code-block">
+            <pre><code>int partition(int* array, int left, int right) {
+    int pivot = 0; int i = 0; int j = 0;
+    int temp = 0; int break = 0; int ret = 0;
+    pivot = *(array+left);
+    i = left-1; j = right+1;
+    while(break == 0) {
+        i = i+1; while(*(array+i) &lt pivot) { i = i+1; }
+        j = j-1; while(*(array+j) > pivot) { j = j-1; }
+        if(i >= j) { ret = j; break = 241; } else {}
+        if(break != 241) {
+        temp = *(array+i); *(array+i) = *(array+j); *(array+j) = temp;
+        } else {}
+    }
+    return ret;
+}
+int fastSort(int* array, int left, int right) {
+    int skip = 0; int pivot = 0;
+    if(left &lt 0) { skip = 1; } else {}
+    if(right &lt 0) { skip = 1; } else {}
+    if(right &lt = left) { skip = 1; } else {}
+    if(skip == 0) {
+        pivot = partition(array, left, right);
+        skip = fastSort(array, left, pivot);
+        skip = fastSort(array, pivot+1, right);
+    } else {}
+    return 0;
+}
+int wain(int* a, int b) {
+    int sort = 0;
+    int i = 0; while(i &lt b) { println(*(a+i)); i = i+1; }
+    sort = fastSort(a,0,b-1);
+    i = 0; while(i &lt b) { println(*(a+i)); i = i+1; }
+    return 0;
+}
+            </code></pre>
+        </div>
+        <div class="code-block">
+            <pre><code>.import print
+.import init
+.import new
+.import delete
+                                ; Generating global prologue
+lis $4
+.word 4
+lis $10
+.word 0xffff000c
+lis $11
+.word 0xffff0004
+lis $12
+.word 1
+lis $13
+.word print
+lis $14
+.word new
+lis $15
+.word delete
+lis $16
+.word init
+                                ; Finished global prologue
+                                ; Starting procedure wain
+wainProcedure:
+sw $1, -4($30)                  ; put a onto the stack
+sw $2, -8($30)                  ; put b onto the stack
+sw $0, -12($30)                 ; putting sort onto the stack
+sw $0, -16($30)                 ; putting i onto the stack
+lis $5
+.word 16
+sub $30, $30, $5
+sw $31, -4($30)                 ; storing $31 before calling init
+sub $30, $30, $4
+jalr $16                        ; calling init
+add $30, $30, $4                ; getting $31 after calling init
+lw $31, -4($30)
+                                ; End prologue for wain
+beginwaintest1:                 ; begin while
+lw $5, 0($30)                   ; loading i
+sw $5, -4($30)
+sub $30, $30, $4
+lw $6, 12($30)                  ; loading b
+add $30, $30, $4
+lw $5, -4($30)
+slt $5, $5, $6                  ; <
+beq $5, $0, waintest1
+lw $5, 12($30)                  ; loading a
+sw $5, -4($30)
+sub $30, $30, $4
+lw $6, 4($30)                   ; loading i
+add $30, $30, $4
+lw $5, -4($30)
+mult $6, $4                     ; multiplying integer by 4 before pointer addition
+mflo $6
+add $5, $5, $6                  ; pointer addition done
+lw $1, 0($5)                    ; dereference
+sw $31, -4($30)                 ; pushing $31 to stack before calling print
+sub $30, $30, $4
+jalr $13                        ; calling print
+add $30, $30, $4                ; getting $31 back after calling print
+lw $31, -4($30)
+lw $5, 0($30)                   ; loading i
+add $5, $5, $12                 ; int-int addition done
+sw $5, 0($30)                   ; assigned to i
+beq $0, $0, beginwaintest1
+waintest1:                      ; end while
+sw $31, -4($30)                 ; putting $31 on stack before calling fastSort
+sub $30, $30, $4
+lw $5, 16($30)                  ; loading a
+sw $5, -4($30)                  ; putting argument from wain for another function
+sub $30, $30, $4
+lis $5
+.word 0
+sw $5, -4($30)                  ; putting argument from wain for another function
+sub $30, $30, $4
+lw $5, 20($30)                  ; loading b
+sub $5, $5, $12                 ; subtracting
+sw $5, -4($30)                  ; putting argument from wain for another function
+sub $30, $30, $4
+lis $5                          ; calling fastSort
+.word fastSortProcedure
+jalr $5
+add $5, $0, $3                  ; moving return value from a procedure call
+add $30, $30, $4                ; getting $31 back after calling fastSort
+lw $31, -4($30)
+sw $5, 4($30)                   ; assigned to sort
+sw $0, 0($30)                   ; assigned to i
+beginwaintest2:                 ; begin while
+lw $5, 0($30)                   ; loading i
+sw $5, -4($30)
+sub $30, $30, $4
+lw $6, 12($30)                  ; loading b
+add $30, $30, $4
+lw $5, -4($30)
+slt $5, $5, $6                  ; <
+beq $5, $0, waintest2
+lw $5, 12($30)                  ; loading a
+sw $5, -4($30)
+sub $30, $30, $4
+lw $6, 4($30)                   ; loading i
+add $30, $30, $4
+lw $5, -4($30)
+mult $6, $4                     ; multiplying integer by 4 before pointer addition
+mflo $6
+add $5, $5, $6                  ; pointer addition done
+lw $1, 0($5)                    ; dereference
+sw $31, -4($30)                 ; pushing $31 to stack before calling print
+sub $30, $30, $4
+jalr $13                        ; calling print
+add $30, $30, $4                ; getting $31 back after calling print
+lw $31, -4($30)
+lw $5, 0($30)                   ; loading i
+add $5, $5, $12                 ; int-int addition done
+sw $5, 0($30)                   ; assigned to i
+beq $0, $0, beginwaintest2
+waintest2:                      ; end while
+                                ; generating return expr for wain
+lis $3
+.word 0
+jr $31
+                                ; Starting procedure fastSort
+fastSortProcedure:
+sw $0, -4($30)                  ; putting skip onto the stack
+sw $0, -8($30)                  ; putting pivot onto the stack
+lis $5
+.word 8
+sub $30, $30, $5
+                                ; End prologue for fastSort
+lw $5, 12($30)                  ; loading left
+slt $5, $5, $0                  ; <
+beq $5, $0, fastSorttest1
+sw $12, 4($30)                  ; assigned to skip
+beq $0, $0, fastSorttest1end
+fastSorttest1:
+fastSorttest1end:
+lw $5, 8($30)                   ; loading right
+slt $5, $5, $0                  ; <
+beq $5, $0, fastSorttest2
+sw $12, 4($30)                  ; assigned to skip
+beq $0, $0, fastSorttest2end
+fastSorttest2:
+fastSorttest2end:
+lw $5, 8($30)                   ; loading right
+sw $5, -4($30)
+sub $30, $30, $4
+lw $6, 16($30)                  ; loading left
+add $30, $30, $4
+lw $5, -4($30)
+slt $5, $6, $5                  ; <=, int
+bne $5, $0, fastSorttest3
+sw $12, 4($30)                  ; assigned to skip
+beq $0, $0, fastSorttest3end
+fastSorttest3:
+fastSorttest3end:
+lw $5, 4($30)                   ; loading skip
+bne $5, $0, fastSorttest4       ; ==
+sw $31, -4($30)                 ; putting $31 on stack before calling partition
+sub $30, $30, $4
+lw $5, 20($30)                  ; loading array
+sw $5, -4($30)                  ; putting argument from fastSort for another function
+sub $30, $30, $4
+lw $5, 20($30)                  ; loading left
+sw $5, -4($30)                  ; putting argument from fastSort for another function
+sub $30, $30, $4
+lw $5, 20($30)                  ; loading right
+sw $5, -4($30)                  ; putting argument from fastSort for another function
+sub $30, $30, $4
+lis $5                          ; calling partition
+.word partitionProcedure
+jalr $5
+add $5, $0, $3                  ; moving return value from a procedure call
+add $30, $30, $4                ; getting $31 back after calling partition
+lw $31, -4($30)
+sw $5, 0($30)                   ; assigned to pivot
+sw $31, -4($30)                 ; putting $31 on stack before calling fastSort
+sub $30, $30, $4
+lw $5, 20($30)                  ; loading array
+sw $5, -4($30)                  ; putting argument from fastSort for another function
+sub $30, $30, $4
+lw $5, 20($30)                  ; loading left
+sw $5, -4($30)                  ; putting argument from fastSort for another function
+sub $30, $30, $4
+lw $5, 12($30)                  ; loading pivot
+sw $5, -4($30)                  ; putting argument from fastSort for another function
+sub $30, $30, $4
+lis $5                          ; calling fastSort
+.word fastSortProcedure
+jalr $5
+add $5, $0, $3                  ; moving return value from a procedure call
+add $30, $30, $4                ; getting $31 back after calling fastSort
+lw $31, -4($30)
+sw $5, 4($30)                   ; assigned to skip
+sw $31, -4($30)                 ; putting $31 on stack before calling fastSort
+sub $30, $30, $4
+lw $5, 20($30)                  ; loading array
+sw $5, -4($30)                  ; putting argument from fastSort for another function
+sub $30, $30, $4
+lw $5, 8($30)                   ; loading pivot
+add $5, $5, $12                 ; int-int addition done
+sw $5, -4($30)                  ; putting argument from fastSort for another function
+sub $30, $30, $4
+lw $5, 20($30)                  ; loading right
+sw $5, -4($30)                  ; putting argument from fastSort for another function
+sub $30, $30, $4
+lis $5                          ; calling fastSort
+.word fastSortProcedure
+jalr $5
+add $5, $0, $3                  ; moving return value from a procedure call
+add $30, $30, $4                ; getting $31 back after calling fastSort
+lw $31, -4($30)
+sw $5, 4($30)                   ; assigned to skip
+beq $0, $0, fastSorttest4end
+fastSorttest4:
+fastSorttest4end:
+                                ; generating return expr for fastSort
+lis $3
+.word 0
+lis $5
+.word 20
+add $30, $30, $5                ; Finished epilogue for fastSort
+jr $31
+                                ; Starting procedure partition
+partitionProcedure:
+sw $0, -4($30)                  ; putting pivot onto the stack
+sw $0, -8($30)                  ; putting i onto the stack
+sw $0, -12($30)                 ; putting j onto the stack
+sw $0, -16($30)                 ; putting temp onto the stack
+sw $0, -20($30)                 ; putting break onto the stack
+sw $0, -24($30)                 ; putting ret onto the stack
+lis $5
+.word 24
+sub $30, $30, $5
+                                ; End prologue for partition
+lw $5, 32($30)                  ; loading array
+sw $5, -4($30)
+sub $30, $30, $4
+lw $6, 32($30)                  ; loading left
+add $30, $30, $4
+lw $5, -4($30)
+mult $6, $4                     ; multiplying integer by 4 before pointer addition
+mflo $6
+add $5, $5, $6                  ; pointer addition done
+lw $5, 0($5)                    ; dereference
+sw $5, 20($30)                  ; assigned to pivot
+lw $5, 28($30)                  ; loading left
+sub $5, $5, $12                 ; subtracting
+sw $5, 16($30)                  ; assigned to i
+lw $5, 24($30)                  ; loading right
+add $5, $5, $12                 ; int-int addition done
+sw $5, 12($30)                  ; assigned to j
+beginpartitiontest1:            ; begin while
+lw $5, 4($30)                   ; loading break
+bne $5, $0, partitiontest1      ; ==
+lw $5, 16($30)                  ; loading i
+add $5, $5, $12                 ; int-int addition done
+sw $5, 16($30)                  ; assigned to i
+beginpartitiontest2:            ; begin while
+lw $5, 32($30)                  ; loading array
+sw $5, -4($30)
+sub $30, $30, $4
+lw $6, 20($30)                  ; loading i
+add $30, $30, $4
+lw $5, -4($30)
+mult $6, $4                     ; multiplying integer by 4 before pointer addition
+mflo $6
+add $5, $5, $6                  ; pointer addition done
+lw $5, 0($5)                    ; dereference
+sw $5, -4($30)
+sub $30, $30, $4
+lw $6, 24($30)                  ; loading pivot
+add $30, $30, $4
+lw $5, -4($30)
+slt $5, $5, $6                  ; <
+beq $5, $0, partitiontest2
+lw $5, 16($30)                  ; loading i
+add $5, $5, $12                 ; int-int addition done
+sw $5, 16($30)                  ; assigned to i
+beq $0, $0, beginpartitiontest2
+partitiontest2:                 ; end while
+lw $5, 12($30)                  ; loading j
+sub $5, $5, $12                 ; subtracting
+sw $5, 12($30)                  ; assigned to j
+beginpartitiontest3:            ; begin while
+lw $5, 32($30)                  ; loading array
+sw $5, -4($30)
+sub $30, $30, $4
+lw $6, 16($30)                  ; loading j
+add $30, $30, $4
+lw $5, -4($30)
+mult $6, $4                     ; multiplying integer by 4 before pointer addition
+mflo $6
+add $5, $5, $6                  ; pointer addition done
+lw $5, 0($5)                    ; dereference
+sw $5, -4($30)
+sub $30, $30, $4
+lw $6, 24($30)                  ; loading pivot
+add $30, $30, $4
+lw $5, -4($30)
+slt $5, $6, $5                  ; >
+beq $5, $0, partitiontest3
+lw $5, 12($30)                  ; loading j
+sub $5, $5, $12                 ; subtracting
+sw $5, 12($30)                  ; assigned to j
+beq $0, $0, beginpartitiontest3
+partitiontest3:                 ; end while
+lw $5, 16($30)                  ; loading i
+sw $5, -4($30)
+sub $30, $30, $4
+lw $6, 16($30)                  ; loading j
+add $30, $30, $4
+lw $5, -4($30)
+slt $5, $5, $6                  ; >=, int
+bne $5, $0, partitiontest4
+lw $5, 12($30)                  ; loading j
+sw $5, 0($30)                   ; assigned to ret
+lis $5
+.word 241
+sw $5, 4($30)                   ; assigned to break
+beq $0, $0, partitiontest4end
+partitiontest4:
+partitiontest4end:
+lw $5, 4($30)                   ; loading break
+lis $6
+.word 241
+beq $5, $6, partitiontest5      ; !=
+lw $5, 32($30)                  ; loading array
+sw $5, -4($30)
+sub $30, $30, $4
+lw $6, 20($30)                  ; loading i
+add $30, $30, $4
+lw $5, -4($30)
+mult $6, $4                     ; multiplying integer by 4 before pointer addition
+mflo $6
+add $5, $5, $6                  ; pointer addition done
+lw $5, 0($5)                    ; dereference
+sw $5, 8($30)                   ; assigned to temp
+lw $5, 32($30)                  ; loading array
+sw $5, -4($30)
+sub $30, $30, $4
+lw $6, 20($30)                  ; loading i
+add $30, $30, $4
+lw $5, -4($30)
+mult $6, $4                     ; multiplying integer by 4 before pointer addition
+mflo $6
+add $5, $5, $6                  ; pointer addition done
+sw $5, -4($30)                  ; push left side's address
+sub $30, $30, $4
+lw $5, 36($30)                  ; loading array
+sw $5, -4($30)
+sub $30, $30, $4
+lw $6, 20($30)                  ; loading j
+add $30, $30, $4
+lw $5, -4($30)
+mult $6, $4                     ; multiplying integer by 4 before pointer addition
+mflo $6
+add $5, $5, $6                  ; pointer addition done
+lw $6, 0($5)                    ; dereference
+add $30, $30, $4                ; pop left side's address
+lw $5, -4($30)
+sw $6, 0($5)                    ; left side is a dereference
+lw $5, 32($30)                  ; loading array
+sw $5, -4($30)
+sub $30, $30, $4
+lw $6, 16($30)                  ; loading j
+add $30, $30, $4
+lw $5, -4($30)
+mult $6, $4                     ; multiplying integer by 4 before pointer addition
+mflo $6
+add $5, $5, $6                  ; pointer addition done
+sw $5, -4($30)                  ; push left side's address
+sub $30, $30, $4
+lw $6, 12($30)                  ; loading temp
+add $30, $30, $4                ; pop left side's address
+lw $5, -4($30)
+sw $6, 0($5)                    ; left side is a dereference
+beq $0, $0, partitiontest5end
+partitiontest5:
+partitiontest5end:
+beq $0, $0, beginpartitiontest1
+partitiontest1:                 ; end while
+                                ; generating return expr for partition
+lw $3, 0($30)                   ; loading ret
+lis $5
+.word 36
+add $30, $30, $5                ; Finished epilogue for partition
+jr $31
+
+            </code></pre>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Page</title>
+    <link rel="stylesheet" href="projectstyle.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Poppins">
+    <style>
+      body {
+        font-family: 'Poppins', serif;
+      }
+    </style>
+    <script src="https://kit.fontawesome.com/06014d5b84.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div id="header">
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+                <li><a href="https://github.com/Haris2256" target="_blank">Github</a></li>
+                <li><a href="https://linkedin.com/in/haris-ahmad-67563228a" target="_blank">Linkedin</a></li>
+            </ul>
+        </nav>
+        <div class="header-text">
+            <h1>Rock Paper Scissors</h1>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="rps-game-area">
+        <div class="rps-left">
+            <div class="score">
+                <h1>Running Total:</h1>
+                <h2 id="computer-score">Computer: 0</h2>
+                <h2 id="human-score">Human: 0</h2>
+            </div> 
+        </div>
+        <div class="rps-right">
+            <div class="computer-move">
+                <h1>The Computer Played:</h1>
+                <i id="computer-move-icon"></i>
+            </div>
+            <div class="human-move">
+                <i id="human-move-icon"></i>
+                <div class="row-center">
+                    <div class="choice">
+                        <i id="choice-icon1" class="fa-solid fa-hand-back-fist"></i>
+                        <button id="choice-btn1" class="btn btn2 rock">Rock</button>
+                    </div>
+                    <div class="choice">
+                        <i id="choice-icon2" class="fa-solid fa-hand"></i>
+                        <button id="choice-btn2" class="btn btn2 paper">Paper</button>
+                    </div>
+                    <div class="choice">
+                        <i id="choice-icon3" class="fa-solid fa-hand-scissors"></i>
+                        <button id="choice-btn3" class="btn btn2 scissors">Scissors</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    
+</div>
+
+
+
+    <script src="rps.js"></script>
+</body>
+</html>
