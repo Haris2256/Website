@@ -31,83 +31,52 @@
                 <li><a href="index.html#contact">Contact</a></li>
                 <li><a href="https://github.com/Haris2256" target="_blank">Github</a></li>
                 <li><a href="https://linkedin.com/in/haris-ahmad-67563228a" target="_blank">Linkedin</a></li>
+
             </ul>
         </nav>
-        <div class="header-text">
-            <h1>Hey there,<br>I'm <span>Haris</span></h1>
-        </div>
     </div>
+</div>
+<div class="container header-text">
+    <h1>Hey there, I'm <span>Haris</span></h1>
 </div>
 <!-- -------------about--------------- -->
-<div id="about">
-    <div class="container">
-        <div class="row-justified">
-            <div class="about-col-1">
-                <img src="">
-            </div>
-            <div class="about-col-2">
-                <h1 class="sub-title">About Me</h1>
-                <p>Hey there! My name is Haris and I'm a student at the University of Waterloo. 
-                    I'm pursuing a double degree program in computer science and business administration at Laurier University.
-                    I built this website to demonstrate my skills in HTML/CSS/JS, feel free to look around!</p>
+<div id="about" class="container">
+    <h1 class="sub-title">About Me</h1>
+    <p>Hey there! My name is Haris and I'm a student at the University of Waterloo. 
+        I'm pursuing a double degree program in computer science and business administration at Laurier University.
+        I built this website to demonstrate my skills in HTML/CSS/JS, feel free to look around!</p>
 
-                <div class="tab-titles">
-                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
-                    <p class="tab-links" onclick="opentab('experience')">Experience</p>
-                    <p class="tab-links" onclick="opentab('education')">Education</p>
-                </div>
-                <div class="tab-contents active-tab" id="skills">
-                    <ul>
-                        <li><span>Languages</span><br>Java, C, C++, Python, ARM/MIPS Assembly, HTML/CSS/Javascript</li>
-                        <li><span>Soft Skills</span><br>Clear Communication, Thorough Problem Solving, Flexible Collaboration</li>
-                    </ul>
-                </div>
-                <div class="tab-contents" id="experience">
-                    <ul>
-                        <li><span>UI/UX</span><br>Designing Web/App interfaces</li>
-                        <li><span>Web Development</span><br>Web app Development</li>
-                    </ul>
-                </div>
-                <div class="tab-contents" id="education">
-                    <ul>
-                        <li><span>University of Waterloo - 2B</span>
-                            <br>Computer Science 2028
-                            <br>Average: 88%
-                        </li>
-                        <li><span>Laurier University</span>
-                            <br>Business Administration 2028
-                            <br>GPA: 11/12
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+    <div class="tab-titles">
+        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+        <p class="tab-links" onclick="opentab('experience')">Experience</p>
+        <p class="tab-links" onclick="opentab('education')">Education</p>
+    </div>
+    <div class="tab-contents active-tab" id="skills">
+        <ul>
+            <li><span>Languages</span><br>Java, C, C++, Python, ARM/MIPS Assembly, HTML/CSS/Javascript</li>
+            <li><span>Soft Skills</span><br>Clear Communication, Thorough Problem Solving, Flexible Collaboration</li>
+        </ul>
+    </div>
+    <div class="tab-contents" id="experience">
+        <ul>
+            <li><span>UI/UX</span><br>Designing Web/App interfaces</li>
+            <li><span>Web Development</span><br>Web app Development</li>
+        </ul>
+    </div>
+    <div class="tab-contents" id="education">
+        <ul>
+            <li><span>University of Waterloo - 3A</span>
+                <br>Computer Science 2028
+                <br>Average: 87%
+            </li>
+            <li><span>Laurier University</span>
+                <br>Business Administration 2028
+                <br>GPA: 11/12
+            </li>
+        </ul>
     </div>
 </div>
 
-<!-------------services--------------->
-<!-- <div id="services">
-    <div class="container">
-        <h1 class="sub-title">My Services</h1>
-        <div class="services-list">
-            <div>
-                <h2>Web Design</h2>
-                <p>Description for first service goes here</p>
-                <a href="#">learn more</a>
-            </div>
-            <div>
-                <h2>UI/UX Design</h2>
-                <p>Description for second service goes here</p>
-                <a href="#">learn more</a>
-            </div>
-            <div>
-                <h2>App Design</h2>
-                <p>Description for third service goes here</p>
-                <a href="#">learn more</a>
-            </div>
-        </div>
-    </div>
-</div> -->
 <!---------------portfolio------------------>
 
 <div id="portfolio">
@@ -149,13 +118,12 @@
             <div class="contact-left">
                 <h1 class="sub-title">Contact Me</h1>
                 <p><i class="fa-solid fa-paper-plane"></i>harisahmad@hotmail.ca</p>
-                <p><i class="fa-solid fa-square-phone"></i>289-935-0509</p>
                 <a href="Haris_Ahmad_Resume.pdf" download class="btn btn2">Download My Resume</a>
             </div>
             <div class="contact-right">
-                <form>
+                <form action="mailto:harisahmad@hotmail.com" method="POST" enctype="text/plain">
                     <input type="text" name="Name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email" required>
+                    <input type="email" name="Email" placeholder="Your Email" required>
                     <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
                     <button type="submit" class="btn btn2">Submit</button>
                 </form>

@@ -81,8 +81,9 @@ nav ul li a:hover::after{
 
 /*----------------about----------------*/
 #about{
-    padding: 20px 10px;
     color: #ababab;
+    padding-top: 5%;
+    padding-left: 10%;
 }
 .row-justified{
     display: flex;
@@ -93,6 +94,7 @@ nav ul li a:hover::after{
 
 .about-col-1{
     flex-basis: 35%;
+    padding: 200px 40px;
 }
 .about-col-1 img{
     width: 100%;
@@ -100,7 +102,6 @@ nav ul li a:hover::after{
 }
 .about-col-2{
     flex-basis: 60%;
-
 }
 
 .sub-title{
@@ -148,50 +149,8 @@ nav ul li a:hover::after{
 .tab-contents.active-tab{
     display: block;
 }
-/*--------------------Services---------------------*/
-#services{
-    padding: 30px 0;
-}
-.services-list{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-gap: 40px;
-    margin-top: 50px;
-}
-.services-list div{
-    background-color: #262626;
-    padding: 40px;
-    font-size: 13px;
-    font-weight: 300;
-    border-radius: 10px;
-    transition: background 0.5s, transform 0.5s;
-}
-.services-list div i{
-    font-size: 50px;
-    margin-bottom: 30px;
-}
-.services-list div h2{
-    font-size: 30px;
-    font-weight: 500;
-    margin-bottom: 15px;
-}
-.services-list div a{
-    text-decoration: none;
-    color: #fff;
-    font-size: 12px;
-    margin-top: 20px;
-    display: inline-block;
-}
-.services-list div:hover{
-    background: #4169e1;
-    transform: translateY(-10px);
-}
-
 /*----------------portfolio------------*/
 
-#portfolio{
-    padding: 50px 0;
-}
 .work-list{
     display: flex;
     margin-top: 50px;
@@ -273,6 +232,9 @@ nav ul li a:hover::after{
 }
 
 /*----------------contact---------------*/
+#contact{
+    padding-top: 5%;
+}
 .contact-left{
     flex-basis: 35%;
 }
