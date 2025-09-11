@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Page</title>
+    <link rel="stylesheet" href="projectstyle.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Poppins">
+    <style>
+      body {
+        font-family: 'Poppins', serif;
+      }
+    </style>
+    <script src="https://kit.fontawesome.com/06014d5b84.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div id="header">
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+                <li><a href="https://github.com/Haris2256" target="_blank">Github</a></li>
+                <li><a href="https://linkedin.com/in/haris-ahmad-67563228a" target="_blank">Linkedin</a></li>
+            </ul>
+        </nav>
+        <div class="header-text">
+            <h1>Portfolio Manager</h1>
+        </div>
+    </div>
+</div>
+
+
+<div class="container project-info" style="align-items: center;">
+    <div style="margin-right: 100px;">
+        <h1>A bit about the project</h1>
+    <p style="margin-top: 20px;">This stock portfolio manager allows the user to buy and sell stocks
+        and provides various information about the trades. It can be used to simulate trading on the
+        stock market without spending real money, or as a way to keep track of all of the user's
+        real transactions so that the user can access all the information about their portfolio. The
+        entire project was done in Python, using Tkinter for the graphics, yfinance for the stock
+        information, and pandas/openpyxl for reading and writing to the excel sheet where the information
+        is stored.
+    </p>
+    </div>
+    <div>
+        <img style="width: 450px; height: auto; border-radius: 4px;" src="images/stocks_main.png">
+    </div>
+</div>
+
+<div class="container project-info">
+    <div>
+        <img style="width: 300px; height: auto; border-radius: 4px;" src="images/stocks_buy.png">
+    </div>
+    <div style="margin-left: 100px;">
+        <h1>Buying Interface</h1>
+    <p style="margin-top: 20px;">This is the interface for buying and selling a stock. It asks the user
+        the price they purchased the stock at and how many shares or the value of the total purchase. The
+        purchase price is left up to the user so that real world trades made at a different time can be 
+        recorded as they were made rather than be restricted to whatever the current stock price is.
+    </p>
+    </div>
+</div>
+
+<div class="container project-info" style="align-items: center;">
+    <div style="margin-right: 100px;">
+        <h1>Watchlist</h1>
+    <p style="margin-top: 20px;">
+        The watchlist shows the percent change since last close, 1 week, 1 month, 1 year, and 5 years.
+        The refresh button updates all the stock prices and their changes.
+    </p>
+    </div>
+    <div>
+        <img style="width: 500px; height: auto; border-radius: 4px;" src="images/stocks_watchlist.png">
+    </div>
+</div>
+
+<div class="container project-info">
+    <div>
+        <img style="width: 400px; height: auto; border-radius: 4px;" src="images/stocks_transactions.png">
+    </div>
+    <div style="margin-left: 100px;">
+        <h1>Transaction History</h1>
+    <p style="margin-top: 20px;">This is where past transactions can be viewed and edited if mistakes were
+        made entering information. Transactions can also be deleted from here. Transactions are necessary
+        to be tracked so that other information can be calculated such as average price, and realized return.
+        The transactions can also be sorted by each attribute to make specific transactions easy to find.
+    </p>
+    </div>
+</div>
+
+<div class="container project-info" style="align-items: center;">
+    <div style="margin-right: 100px;">
+        <h1>Details</h1>
+    <p style="margin-top: 20px;">
+        This is more information about all the securities ever traded. This allows the user to see how much
+        progress they've made since they started trading and keep track of their best performing holdings.
+        These can also be sorted by any of the attributes listed in the header. 
+    </p>
+    </div>
+    <div>
+        <img style="width: 500px; height: auto; border-radius: 4px;" src="images/stocks_details.png">
+    </div>
+</div>
+
+
+
+
+</body>
+</html>
