@@ -2,6 +2,6 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
-  base: '/avl-game/',  // ← Add this line
+  base: '/Website/projects/avl-game/',  // ← Include full path!
   plugins: [react()],
 })
