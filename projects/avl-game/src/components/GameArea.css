@@ -1,0 +1,26 @@
+.avl-tree-area {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 20px;
+}
+
+.avl-left, 
+.avl-right{
+    padding: 5px;
+    text-align: center;
+    gap: 2.5rem;
+}
+
+.tree-area{
+    position: relative;
+    flex: 1;
+    background: #111;
+    border-radius: 16px;
+    min-height: 420px;
+}
+
+.avl-btn-area {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}

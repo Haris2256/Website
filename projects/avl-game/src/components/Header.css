@@ -1,0 +1,12 @@
+.header-text {
+  text-align: left;
+}
+
+nav ul {
+  display: flex;
+  gap: 0.26rem;  /* Adjust this value for more/less spacing */
+  list-style: none;
+}
+p{
+  color: grey;
+}
