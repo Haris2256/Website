@@ -3,8 +3,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   // 1. Use a relative base path instead of a hardcoded absolute path
-  base: './', 
-  
+  base: '/avl-game/docs/',
   plugins: [react()],
   
   // 2. Configure the build process for GitHub pages
